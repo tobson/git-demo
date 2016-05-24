@@ -1,0 +1,31 @@
+#!/usr/bin/env perl
+
+# print "PANSEN: @ARGV $ARGV[1] lkhds "
+exit 0 if $ARGV[1] ne "merge";
+
+# Read in commit message
+open (FILE, '.git/MERGE_MSG');
+my $message = do { local $/; <FILE> };
+close (FILE);
+
+# Extract branch to be merged
+$message =~ /Merge branch \'(.*?)\'/;
+my $source = $1;
+
+# retrieve local branch name from a sym ref of HEAD 
+chomp (my $destination=`git symbolic-ref HEAD`);
+
+# die if $source eq "master" and $destination eq "refs/heads/master"
+if ($source eq "master" and $destination eq "refs/heads/master") {
+    print "\n";
+    print "Merging origin/master into local master branch.\n";
+    print "Chances are you don't want that.\n";
+    print "\n";
+    print "Try running the following commands:\n";
+    print "\n";
+    print "\$ git reset --merge\n";
+    print "\$ git rebase --autostash\n";
+    print "\n";
+    print "Ignore this:\n";
+    exit 1
+}
