@@ -9,4 +9,7 @@ persist for years]
 Third paragraph.
 
 Appendix
+Currently known branches:
+- master
+- feature-1
 
