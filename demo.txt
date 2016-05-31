@@ -1,4 +1,4 @@
-First paragraph.
+1. First paragraph.
 
 First-and-a-half paragraph (or is it "-a-halfst?")
 
