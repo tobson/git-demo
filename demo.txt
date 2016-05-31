@@ -3,7 +3,7 @@ First paragraph.
 Second paragraph.
 [Alice was here]
 
-Third paragraph.
+Third paragraph...
 
 Appendix
 
