@@ -1,6 +1,7 @@
 First paragraph.
 
 Second paragraph.
+[Alice was here]
 
 Third paragraph.
 
