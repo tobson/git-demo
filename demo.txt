@@ -1,5 +1,7 @@
 First paragraph.
 
+First-and-a-half paragraph (or is it "-a-halfst?")
+
 Second paragraph.
 [Alice was here and started a quick feature branch that turned out to
 persist for years]
