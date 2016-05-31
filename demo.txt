@@ -1,7 +1,8 @@
 First paragraph.
 
 Second paragraph.
-[Alice was here]
+[Alice was here and started a quick feature branch that turned out to
+persist for years]
 
 Third paragraph.
 
