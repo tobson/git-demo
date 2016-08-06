@@ -1,13 +1,14 @@
 #!/bin/sh
 #
-# /a pre-commit hook that prohibits commiting a merge of the upstream
+# A pre-commit hook that prohibits commiting a merge of the upstream
 # (remote-tracking) branch into the local branch.
 #   
 # Notes:
-# - This is a quick hack, end it would be preferable to reimplement this
+# - This is a quick hack, and it would be preferable to reimplement this
 #   in Perl or Python.
 # - We do not use the '@{u}' syntax, because old Git clients do not
-#   support it. [How old? is this really an issue?]
+#   support it. [It appeared somewhere between Git 1.5.4 {Ubuntu
+#   Hardy} and 1.7.0 {Ubuntu Lucid}]
 
 # If this is a merge commit, the second argument is 'merge':
 if [ "$2" != 'merge' ]; then
@@ -47,12 +48,11 @@ if [ "$(git rev-parse FETCH_HEAD)" = "$(git rev-parse $(tracking_branch))" ]; th
     echo "\$ git reset --merge"
     echo "\$ git rebase --autostash"
     echo ""
-    echo "To avoid this problem in the future, don't use 'git pull' without the '--rebase'"
-    echo "flag."
+    echo "To avoid this problem in the future, don't use 'git pull' without the"
+    echo "'--rebase' flag."
     echo ""
     echo "[Ignore the following line:]"
     exit 1
 else
     exit 0
 fi
-
