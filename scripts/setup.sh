@@ -14,12 +14,12 @@ clone() {
         echo Cannot autostash
         exit 1
     fi
-    if [ -n $stash_sha1 ]; then
+    if [ -n "$stash_sha1" ]; then
         echo Created autostash: $(git rev-parse --short $stash_sha1)
         git reset --hard
     fi
     git pull --rebase
-    if [ -n $stash_sha1 ]; then
+    if [ -n "$stash_sha1" ]; then
         if git stash apply $stash_sha1 2>&1 >/dev/null; then
             echo Applied autostash.
         else
